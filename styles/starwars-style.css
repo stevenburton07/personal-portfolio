@@ -1,0 +1,56 @@
+html {
+  color: black;
+  margin: 0;
+}
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 2rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+  grid-template-columns: auto auto;
+  background-image: url("/assets/star-wars-star-background-4.jpg");
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-gap: 2rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+button {
+  font-size: 1.5rem;
+  padding: 20px;
+  border-radius: 10% / 50%;
+  background-color: bisque;
+  visibility: visible;
+}
+
+h3,
+p {
+  margin: 0px;
+}
+
+img {
+  width: 120px;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 200px;
+  width: 150px;
+  border: 1px solid #d6abf3;
+  padding: 10px;
+}

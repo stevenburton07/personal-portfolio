@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
     />
-    <link href="style.css" rel="stylesheet" />
+    <link href="/styles/style.css" rel="stylesheet" />
     <title>Steven's Personal Portfolio</title>
   </head>
   <body>
@@ -34,9 +34,11 @@
 
     <!-- Projects -->
     <section id="projects">
-        <h2 class ="project-section-header">Here are some of my projects</h2>
+      <h2 class="project-section-header">Here are some of my projects</h2>
       <div class="projects-grid">
-        <a id ="profile-link"
+        <!-- Steven on Github -->
+        <a
+          id="profile-link"
           href="https://github.com/stevenburton07"
           target="_blank"
           class="project project-tile"
@@ -47,43 +49,39 @@
             alt="project"
           />
           <p class="project-title">
-            <span class="code">&lt;</span>
             Steven on Github
-            <span class="code">&#47;&gt;</span>
           </p>
         </a>
 
+        <!-- Star Wars Link -->
         <a
-          href="https://codepen.io/freeCodeCamp/full/zNqgVx"
-          Target="_blank"
-          class="project project-tile"
-        >
-          <img
-            class="project-image"
-            src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/images/tribute.jpg"
-            alt="project"
-          />
-          <p class="project-title">
-            <span class="code">&lt;</span>
-            Tribute Page
-            <span class="code">&#47;&gt;</span>
-          </p>
-        </a>
-
-        <a
-          href="https://codepen.io/freeCodeCamp/full/wgGVVX"
+          id="profile-link"
+          href="/starwars.html"
           target="_blank"
           class="project project-tile"
         >
           <img
             class="project-image"
-            src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/images/calc.png"
+            src="/images/starwarsposter.png"
+            alt="project"
+          />   
+          <p class="project-title">
+            Star Wars Project
+          </p>
+        </a>
+
+        <a
+          href="/starships.html"
+          target="_blank"
+          class="project project-tile"
+        >
+          <img
+            class="project-image"
+            src="/images/falcon.jpg"
             alt="project"
           />
           <p class="project-title">
-            <span class="code">&lt;</span>
-            JavaScript Calculator
-            <span class="code">&#47;&gt;</span>
+            Star Wars Starships
           </p>
         </a>
       </div>
@@ -91,7 +89,5 @@
 
     <!-- Contact -->
     <section id="contact"></section>
-
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
   </body>
 </html>
