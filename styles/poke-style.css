@@ -12,11 +12,11 @@ main {
   margin-bottom: 6rem;
 }
 
-.picDiv {
+.picDivs {
   width: 100%;
 }
 
-.charDiv {
+.charDivs {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,4 +71,14 @@ p {
   margin: 0px;
   font-size: 18px;
   line-height: 0px;
+}
+
+button {
+  width: 150px;
+  height: 80px;
+  background-color: blue;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  margin: 20px;
 }
