@@ -14,7 +14,9 @@ class Pokemon{
 
 const Stevemon = new Pokemon (900, 'Stevemon', 130)
 
-
+document.querySelector('#pokeButton').addEventListener('click', () => {
+  populateDOM(Stevemon)
+})
 
 
 async function getAPIData(url) {
@@ -94,7 +96,7 @@ function fillCardBack(pokeBack, data) {
 }
 
 function getPokeNumber(id) {
-  if (id < 10) return `00#{id}`
+  if (id < 10) return `00${id}`
   if (id > 9 && id < 100) {
       return `0${id}`
   } else return id
