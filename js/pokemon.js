@@ -16,13 +16,16 @@ const Stevemon = new Pokemon (900, 'Stevemon', 130)
 
 document.querySelector('#pokeButton').addEventListener('click', () => {
   let pokeId = prompt("Provide the Pokemon ID you want to add:")
-  if(!pokeId > 0 && !pokeId < 810) {
+  let pokeIdNum = parseInt(pokeId, 10)
+  if (pokeIdNum  > 807) {
     alert('That Pokemon ID does not exist! Please enter a different ID.')
-  }
-  let retrievedPokemon = getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then(result => {
-    //let newPokemon = new Pokemon(result)
+    return
+  } else {
+  getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then(result => {
+  //let newPokemon = new Pokemon(result)
     populateDOM(result)
   }).catch(error => console.log(error))
+  }
 })
 
 

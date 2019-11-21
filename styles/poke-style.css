@@ -26,7 +26,7 @@ main {
   width: 200px;
   height: 260px;
   border: 1px solid #CCC;
-  margin: 40px 0;
+  margin: 0px;
   perspective: 600px;
 }
 
