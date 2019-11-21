@@ -15,7 +15,14 @@ class Pokemon{
 const Stevemon = new Pokemon (900, 'Stevemon', 130)
 
 document.querySelector('#pokeButton').addEventListener('click', () => {
-  populateDOM(Stevemon)
+  let pokeId = prompt("Provide the Pokemon ID you want to add:")
+  if(!pokeId > 0 && !pokeId < 810) {
+    alert('That Pokemon ID does not exist! Please enter a different ID.')
+  }
+  let retrievedPokemon = getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then(result => {
+    //let newPokemon = new Pokemon(result)
+    populateDOM(result)
+  }).catch(error => console.log(error))
 })
 
 
@@ -70,7 +77,8 @@ function fillCardFront(pokeFront, data) {
   let pokeNum = getPokeNumber(data.id)
   pokeFront.appendChild(name)
   //name.textContent = `${data.name} height: ${data.height}`
-  pic.src = `../images/${pokeNum}.png`
+  //pic.src = `../images/${pokeNum}.png`
+  pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
 
   pokeFront.appendChild(pic)
   pokeFront.appendChild(name)
@@ -80,8 +88,8 @@ function fillCardBack(pokeBack, data) {
   pokeBack.setAttribute('class', 'card_face card_face--back')
   let pokeOrder = document.createElement('p')
   let pokeHP = document.createElement('h5')
-  pokeOrder.textContent = `#${data.id}${data.name[0].toUpperCase()}${data.name.slice(1)}`
-  pokeHP.textContent = data.stats[0].base_stat
+  pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
+  //pokeHP.textContent = data.stats[0].base_stat
   pokeBack.appendChild(pokeOrder)
   pokeBack.appendChild(pokeHP)
 }
