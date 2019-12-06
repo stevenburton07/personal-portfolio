@@ -31,7 +31,7 @@ nav {
 }
 
 #navlist a:hover {
-    background:  #45567d;
+    background:  #AD961A;
   }
 
 #welcome-section {
@@ -136,8 +136,16 @@ nav {
   color: white;
 }
 
-  @media (max-width: 28.75em) {
-    .project-section-header {
-      font-size: 4rem;
-    }
+footer {
+  text-align: center;
+  font-family: "arial", sans, serif;
+  color: #f0f0f0;
+  background-color: #342BAD;
+  padding: 20px;
+}
+
+@media (max-width: 28.75em) {
+  .project-section-header {
+  font-size: 4rem;
   }
+}
