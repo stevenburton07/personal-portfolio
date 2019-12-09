@@ -12,6 +12,25 @@ main {
   margin-bottom: 6rem;
 }
 
+body {
+  background-color: lightgray;
+}
+
+.pokemonlogo {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.api {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0px;
+  width: 10%;
+}
+
 .picDivs {
   width: 100%;
 }
@@ -25,7 +44,7 @@ main {
 .scene {
   width: 200px;
   height: 260px;
-  border: 1px solid #CCC;
+  border: 1px solid black;
   margin: 0px;
   perspective: 600px;
 }
