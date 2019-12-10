@@ -73,13 +73,13 @@ function populateDOM(single_pokemon) {
 }
 
 function fillCardFront(pokeFront, data) {
-  pokeFront.setAttribute('class', 'card_face card_face--front')
+  pokeFront.setAttribute('class', 'card_face card_face-front')
   let name = document.createElement('p')
   let pic = document.createElement('img')
   pic.setAttribute('class', 'picDivs')
   let pokeNum = getPokeNumber(data.id)
   pokeFront.appendChild(name)
-  //name.textContent = `${data.name} height: ${data.height}`
+  name.textContent = `${data.name}`
   //pic.src = `../images/${pokeNum}.png`
   pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
 
@@ -88,13 +88,31 @@ function fillCardFront(pokeFront, data) {
 }
 
 function fillCardBack(pokeBack, data) {
-  pokeBack.setAttribute('class', 'card_face card_face--back')
+  pokeBack.setAttribute('class', 'card_face card_face-back')
   let pokeOrder = document.createElement('p')
   let pokeHP = document.createElement('h5')
-  pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
-  //pokeHP.textContent = data.stats[0].base_stat
+  let pokeAb = document.createElement('h5')
+  let pokeAbilities = document.createElement('ul')
+
+  //targeted types using map
+  pokeOrder.textContent = `Type: ${data.types.map(t => t.type.name)}`
+
+  pokeHP.textContent = `HP: ${data.stats[5].base_stat}`
+  pokeAb.textContent = 'Abilities:'
+
+  // target abilities
+  pokeAbilities.innerHTML = data.abilities
+    .map(a => a.ability.name)
+    .reduce(
+      (accumulator, currentValue) =>
+        (accumulator += `<li class="pokeability">${currentValue}</li>`),
+      '',
+    )
+
   pokeBack.appendChild(pokeOrder)
   pokeBack.appendChild(pokeHP)
+  pokeBack.appendChild(pokeAb)
+  pokeBack.appendChild(pokeAbilities)
 }
 
 {

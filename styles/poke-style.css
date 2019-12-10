@@ -44,8 +44,7 @@ body {
 .scene {
   width: 200px;
   height: 260px;
-  border: 1px solid black;
-  margin: 0px;
+  margin: 20px 0px;
   perspective: 600px;
 }
 
@@ -54,7 +53,6 @@ body {
   height: 100%;
   transition: transform 1s;
   transform-style: preserve-3d;
-  cursor: pointer;
   position: relative;
 }
 
@@ -62,24 +60,26 @@ body {
   transform: rotateY(180deg);
 }
 
-.card__face {
+.card_face {
   position: absolute;
   width: 100%;
   height: 100%;
-  /*line-height: 260px;*/
-  /*color: white;*/
+  border: 1px solid black;
+  line-height: 0px;
+  color: #fff;
   text-align: center;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 20px;
   backface-visibility: hidden;
 }
 
-.card__face--front {
-  /*background: red;*/
+.card_face-front {
+  background: #5980b9;
 }
 
-.card__face--back {
-  background: blue;
+.card_face-back {
+  background: #d20200;
+  border-color: #000;
   transform: rotateY(180deg);
 }
 
@@ -90,6 +90,12 @@ p {
   margin: 0px;
   font-size: 18px;
   line-height: 0px;
+}
+
+h5 {
+  text-align: justify;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 button {
