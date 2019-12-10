@@ -89,7 +89,7 @@ function fillCardFront(pokeFront, data) {
 
 function fillCardBack(pokeBack, data) {
   pokeBack.setAttribute('class', 'card_face card_face-back')
-  let pokeOrder = document.createElement('p')
+  let pokeOrder = document.createElement('h5')
   let pokeHP = document.createElement('h5')
   let pokeAb = document.createElement('h5')
   let pokeAbilities = document.createElement('ul')

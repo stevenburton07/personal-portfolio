@@ -93,9 +93,9 @@ p {
 }
 
 h5 {
-  text-align: justify;
-  margin-right: auto;
+  display: flex;
   margin-left: auto;
+  margin-right: auto;
 }
 
 button {
