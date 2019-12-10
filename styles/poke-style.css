@@ -79,7 +79,7 @@ body {
 }
 
 .card__face--back {
-  /*background: blue;*/
+  background: blue;
   transform: rotateY(180deg);
 }
 
@@ -94,10 +94,12 @@ p {
 
 button {
   width: 150px;
-  height: 80px;
-  background-color: blue;
-  color: #fff;
+  height: 100px;
+  background-image: url(https://pngimage.net/wp-content/uploads/2018/06/fundo-pokemon-png-3.png);
+  background-position: center;
+  color: #ffffff;
   font-size: 1.2rem;
-  border-radius: 10px;
+  font-style: bold;
+  border-radius: 50px;
   margin: 20px;
 }
