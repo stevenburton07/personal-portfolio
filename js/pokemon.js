@@ -94,13 +94,11 @@ function fillCardBack(pokeBack, data) {
   let pokeAb = document.createElement('h5')
   let pokeAbilities = document.createElement('ul')
 
-  //targeted types using map
   pokeOrder.textContent = `Type: ${data.types.map(t => t.type.name)}`
 
   pokeHP.textContent = `HP: ${data.stats[5].base_stat}`
   pokeAb.textContent = 'Abilities:'
 
-  // target abilities
   pokeAbilities.innerHTML = data.abilities
     .map(a => a.ability.name)
     .reduce(
