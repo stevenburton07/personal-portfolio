@@ -4,7 +4,7 @@
 
  starships.forEach(ship => {
      let shipDiv = document.createElement('div')
-     let shipName = document.createElement('h3')
+     let shipName = document.createElement('h4')
      let shipPic = document.createElement('img')
 
      shipName.textContent = ship.name
