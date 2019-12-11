@@ -38,8 +38,16 @@ button {
   visibility: visible;
 }
 
-h3, p {
+h3 {
+  font-size: 16px;
+  font-style: bold;
   margin: 0px;
+  color: yellow;
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
   color: yellow;
 }
 
@@ -63,6 +71,7 @@ div {
   width: 150px;
   border: 1px solid yellow;
   padding: 10px;
+  background-color: #353535;
 }
 
 footer {

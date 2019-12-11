@@ -63,5 +63,17 @@ femaleButton.addEventListener("click", () => {
   });
 });
 
+let allButton = document.createElement("button");
+allButton.textContent = "All Characters";
+allButton.addEventListener("click", () => {
+  femaleCharacters.forEach(elt => {
+    let matchedDiv = allDivs.filter(element => {
+      return element.firstChild.textContent === elt.name;
+    });
+    matchedDiv[0].setAttribute("style", "display: revert");
+  });
+});
+
 mainHeader.appendChild(maleButton);
 mainHeader.appendChild(femaleButton);
+mainHeader.appendChild(allButton);
