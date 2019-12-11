@@ -4,113 +4,114 @@
 } */
 
 //data.stats[0].base_stat
-class Pokemon{
-  constructor (id, name, stats) {
-    this.id
-    this.name
-    this.base_stats = stats
+class Pokemon {
+  constructor(id, name, stats) {
+    this.id;
+    this.name;
+    this.base_stats = stats;
   }
 }
 
-const Stevemon = new Pokemon (900, 'Stevemon', 130)
+const Stevemon = new Pokemon(900, "Stevemon", 130);
 
-document.querySelector('#pokeButton').addEventListener('click', () => {
-  let pokeId = prompt("Provide the Pokemon ID you want to add:")
-  let pokeIdNum = parseInt(pokeId, 10)
-  if (pokeIdNum  > 807) {
-    alert('That Pokemon ID does not exist! Please enter a different ID.')
-    return
+document.querySelector("#pokeButton").addEventListener("click", () => {
+  let pokeId = prompt("Provide the Pokemon ID you want to add:");
+  let pokeIdNum = parseInt(pokeId, 10);
+  if (pokeIdNum > 807) {
+    alert("That Pokemon ID does not exist! Please enter a different ID.");
+    return;
   } else {
-  getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then(result => {
-  //let newPokemon = new Pokemon(result)
-    populateDOM(result)
-  }).catch(error => console.log(error))
+    getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
+      .then(result => {
+        //let newPokemon = new Pokemon(result)
+        populateDOM(result);
+      })
+      .catch(error => console.log(error));
   }
-})
-
+});
 
 async function getAPIData(url) {
   try {
-    const response = await fetch(url)
-    const data = await response.json()
-    return data
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 }
 
 // now use the returned async data
-const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/').then(data => {
+const theData = getAPIData("https://pokeapi.co/api/v2/pokemon/").then(data => {
   for (const pokemon of data.results) {
     getAPIData(pokemon.url).then(pokedata => {
-      populateDOM(pokedata)
-    })
+      populateDOM(pokedata);
+    });
   }
-})
+});
 
-let mainArea = document.querySelector('main')
+let mainArea = document.querySelector("main");
 
 function populateDOM(single_pokemon) {
-  let pokeScene = document.createElement('div')
-  let pokeCard = document.createElement('div')
-  let pokeFront = document.createElement('div')
-  let pokeBack = document.createElement('div')
+  let pokeScene = document.createElement("div");
+  let pokeCard = document.createElement("div");
+  let pokeFront = document.createElement("div");
+  let pokeBack = document.createElement("div");
 
-  fillCardFront(pokeFront, single_pokemon)
-  fillCardBack(pokeBack, single_pokemon)
+  fillCardFront(pokeFront, single_pokemon);
+  fillCardBack(pokeBack, single_pokemon);
 
-  pokeScene.setAttribute('class', 'scene')
-  pokeCard.setAttribute('class', 'card')
-  pokeCard.appendChild(pokeFront)
-  pokeCard.appendChild(pokeBack)
-  pokeScene.appendChild(pokeCard)
+  pokeScene.setAttribute("class", "scene");
+  pokeCard.setAttribute("class", "card");
+  pokeCard.appendChild(pokeFront);
+  pokeCard.appendChild(pokeBack);
+  pokeScene.appendChild(pokeCard);
 
-  mainArea.appendChild(pokeScene)
+  mainArea.appendChild(pokeScene);
 
-  pokeCard.addEventListener('click', function() {
-      pokeCard.classList.toggle('is-flipped');
+  pokeCard.addEventListener("click", function() {
+    pokeCard.classList.toggle("is-flipped");
   });
 }
 
 function fillCardFront(pokeFront, data) {
-  pokeFront.setAttribute('class', 'card_face card_face-front')
-  let name = document.createElement('p')
-  let pic = document.createElement('img')
-  pic.setAttribute('class', 'picDivs')
-  let pokeNum = getPokeNumber(data.id)
-  pokeFront.appendChild(name)
-  name.textContent = `${data.name}`
+  pokeFront.setAttribute("class", "card_face card_face-front");
+  let name = document.createElement("p");
+  let pic = document.createElement("img");
+  pic.setAttribute("class", "picDivs");
+  let pokeNum = getPokeNumber(data.id);
+  pokeFront.appendChild(name);
+  name.textContent = `${data.name}`;
   //pic.src = `../images/${pokeNum}.png`
-  pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
+  pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`;
 
-  pokeFront.appendChild(pic)
-  pokeFront.appendChild(name)
+  pokeFront.appendChild(pic);
+  pokeFront.appendChild(name);
 }
 
 function fillCardBack(pokeBack, data) {
-  pokeBack.setAttribute('class', 'card_face card_face-back')
-  let pokeOrder = document.createElement('h5')
-  let pokeHP = document.createElement('h5')
-  let pokeAb = document.createElement('h5')
-  let pokeAbilities = document.createElement('ul')
+  pokeBack.setAttribute("class", "card_face card_face-back");
+  let pokeOrder = document.createElement("h5");
+  let pokeHP = document.createElement("h5");
+  let pokeAb = document.createElement("h5");
+  let pokeAbilities = document.createElement("ul");
 
-  pokeOrder.textContent = `Type: ${data.types.map(t => t.type.name)}`
+  pokeOrder.textContent = `Type: ${data.types.map(t => t.type.name)}`;
 
-  pokeHP.textContent = `HP: ${data.stats[5].base_stat}`
-  pokeAb.textContent = 'Abilities:'
+  pokeHP.textContent = `HP: ${data.stats[5].base_stat}`;
+  pokeAb.textContent = "Abilities:";
 
   pokeAbilities.innerHTML = data.abilities
     .map(a => a.ability.name)
     .reduce(
       (accumulator, currentValue) =>
-        (accumulator += `<li class="pokeability">${currentValue}</li>`),
-      '',
-    )
+        (accumulator += `<li class="abilities">${currentValue}</li>`),
+      ""
+    );
 
-  pokeBack.appendChild(pokeOrder)
-  pokeBack.appendChild(pokeHP)
-  pokeBack.appendChild(pokeAb)
-  pokeBack.appendChild(pokeAbilities)
+  pokeBack.appendChild(pokeOrder);
+  pokeBack.appendChild(pokeHP);
+  pokeBack.appendChild(pokeAb);
+  pokeBack.appendChild(pokeAbilities);
 }
 
 {
@@ -123,8 +124,8 @@ function fillCardBack(pokeBack, data) {
 }
 
 function getPokeNumber(id) {
-  if (id < 10) return `00${id}`
+  if (id < 10) return `00${id}`;
   if (id > 9 && id < 100) {
-      return `0${id}`
-  } else return id
+    return `0${id}`;
+  } else return id;
 }

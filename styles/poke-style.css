@@ -32,7 +32,8 @@ body {
 }
 
 .picDivs {
-  width: 100%;
+  padding: 10px;
+  max-width: 180px;
 }
 
 .charDivs {
@@ -84,18 +85,19 @@ body {
 }
 
 p {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  margin: 0px;
-  font-size: 18px;
-  line-height: 0px;
+  font-family: sans-serif;
 }
 
 h5 {
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
+  padding: 10px;
+}
+
+.abilities {
+  text-align: justify;
+  font-size: 0.8em;
+  margin: 0px auto 20px auto;
 }
 
 button {
